@@ -7,6 +7,8 @@
 #include <chronoptics/tof/camera_config.hpp>
 #include <chronoptics/tof/csf_writer.hpp>
 
+#include "cxxopts.hpp"
+
 namespace tof = chronoptics::tof;
 
 int main(int argc, char **argv)
