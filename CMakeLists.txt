@@ -9,7 +9,7 @@ find_package(OpenMP REQUIRED)
 
 set(kea_capture_srcs src/capture.cpp)
 
-add_executable(kea_capture ${kea_opencv_viewer_srcs})
+add_executable(kea_capture ${kea_capture_srcs})
 add_executable(kea_reader src/reader.cpp)
 
 target_link_libraries(kea_capture PRIVATE OpenMP::OpenMP_CXX tof::tof)
