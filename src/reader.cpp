@@ -36,7 +36,7 @@ int main(int argc, char **argv)
         {
             std::cout << "Stream: " << n << std::endl;
             n++;
-            std::cout << "FrameType: " << frame_map[stream.frame_type()] << std::endl;
+            std::cout << "FrameType: " << frame_map[static_cast<int>(stream.frame_type())] << std::endl;
         }
     }
     catch (std::exception &e)

@@ -25,7 +25,7 @@ int main(int argc, char **argv)
     bool bgr = false;
 
     // Example of how to capture a CSF file and write to disk on the camera.
-    options.add_options()("h, help", "Help")("bgr", "Display the colour image", cxxopts::value<bool>(bgr)->default_value("false"))("dmax", "Maximum distance", cxxopts::value<float>(dmax)->default_value("15.0"))("fps", "Depth frames per second", cxxopts::value<float>(fps)->default_value("20.0"))("output", "The output csf file name", cxxopts::value<std::string>(output)->default_value("capture.csf"))("nframes", "The number of frames to capture", cxxopts::value<size_t>(nframes)->default_value("10"))("warmup", "The number of warmup frames", cxxopts::value<size_t>(warmups)->default(40));
+    options.add_options()("h, help", "Help")("bgr", "Display the colour image", cxxopts::value<bool>(bgr)->default_value("false"))("dmax", "Maximum distance", cxxopts::value<float>(dmax)->default_value("15.0"))("fps", "Depth frames per second", cxxopts::value<float>(fps)->default_value("20.0"))("output", "The output csf file name", cxxopts::value<std::string>(output)->default_value("capture.csf"))("nframes", "The number of frames to capture", cxxopts::value<size_t>(nframes)->default_value("10"))("warmup", "The number of warmup frames", cxxopts::value<size_t>(warmups)->default_value("40"));
     auto result = options.parse(argc, argv);
 
     if (result.count("h") || result.count("help"))
@@ -61,7 +61,7 @@ int main(int argc, char **argv)
         }
 
         // Generate the ToF ISP filtering settings
-        proc = config.default_processing();
+        auto proc = config.default_processing();
         proc.set_intensity_scale(5.0f);
 
         // Set the camera settings
